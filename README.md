@@ -1,26 +1,30 @@
-# Devoir sur la génération d'une clé pour coder et décoder un message :
 
-**Pour compiler le programme :**
+Homework on generating a key to encode and decode a message:
 
-`gcc -o vernam vernam.c`
+To compile the program:
 
-**Conseils d'utilisation**
+```
+gcc -o vernam vernam.c
+```
 
-Faire `./vernam` seul permet de voir comment utiliser le programme, quels arguments rentrer sur la ligne de commandes et de lancer le programme.
+Usage Advice:
 
-Les fichiers `<fichier_clé>`, `<fichier_msg_codé>` et `<fichier_msg_décodé>` seront générés au cours de l'exécution de programme, ils ne sont donc pas présents sur la page git de celui-ci.
+Running `./vernam` alone will show how to use the program, what arguments to enter on the command line, and how to launch the program.
 
-D'abord, lancer le code avec l'option permettant de générer une clé : l'option `-k`
+The files `<key_file>`, `<encoded_msg_file>`, and `<decoded_msg_file>` will be generated during the execution of the program, so they are not present on its GitHub page.
 
-Une fois la clé générée, coder le message original avec l'option `-c`, à l'aide de `<ficher_msg>` et de `<fichier_clé>`. Le message codé sera placé dans `<fichier_msg_codé>`.
+First, run the code with the option to generate a key: the -k option.
 
-Pour finir, décoder le message codé avec l'option `-d`, à l'aide de `<fichier_msg_codé>` et de `<fichier_clé>`. Le message décodé sera placé dans `<fichier_msg_décodé>`.
+Once the key is generated, encode the original message with the -c option, using `<msg_file>` and `<key_file>`. The encoded message will be placed in `<encoded_msg_file>`.
 
-**Pour lancer le programme :**
-- `./vernam -k <fichier_msg> <fichier_clé>` -> Génère une clé de cryptage en fonction du message présent dans `<fichier_msg>` et stocke la clé dans `<fichier_clé>`.
-- `./vernam -c <fichier_msg> <fichier_clé> <fichier_msg_codé>` -> Génère un message codé à partir du message présent dans `<fichier_msg>` et de la clé présente dans `<fichier_clé>` et stocke le message codé dans `<fichier_msg_codé>`.
-- `./vernam -d <fichier_msg_codé> <fichier_clé> <fichier_msg_decodé>` -> Génère un message décodé à partir du message présent dans `<fichier_msg_codé>` et de la clé présente dans `<fichier_clé>` et stocke le message décodé dans `<fichier_msg_décodé>`.
+Finally, decode the encoded message with the -d option, using `<encoded_msg_file>` and `<key_file>`. The decoded message will be placed in `<decoded_msg_file>`.
 
-**Limites de mon programme :** 
+To launch the program:
 
-Pour que l'algorithme de cryptage fonctionne, la taille de la clé doit être supérieure ou égale à celle du message. Cela n'est pas pratique lorsque l'on doit crypter de grands messages car on doit transmettre une clé qui fait la même taille que le message pour son décodage. Le programme a été testé avec un texte `"lorem ipsum"` de 500 mots et je n'ai pas rencontré de ralentissements significatifs lors du codage et du décodage du message. Le temps de calcul a été instantané, le fichier contenant le message décodé `<fichier_msg_décodé>` est généré d'un coup.
+- `./vernam -k <msg_file> <key_file>` -> Generates an encryption key based on the message in `<msg_file>` and stores the key in `<key_file>`.
+- `./vernam -c <msg_file> <key_file> <encoded_msg_file>` -> Generates an encoded message from the message in `<msg_file>` and the key in `<key_file>` and stores the encoded message in `<encoded_msg_file>`.
+- `./vernam -d <encoded_msg_file> <key_file> <decoded_msg_file>` -> Generates a decoded message from the message in `<encoded_msg_file>` and the key in `<key_file>` and stores the decoded message in `<decoded_msg_file>`.
+
+Program Limitations:
+
+For the encryption algorithm to work, the key size must be greater than or equal to the message size. This is not practical when encrypting large messages as a key of the same size as the message is required for decoding. The program was tested with a "lorem ipsum" text of 500 words, and I did not experience any significant slowdowns during the encoding and decoding of the message. The computation time was instantaneous, and the file containing the decoded message `<decoded_msg_file>` is generated in one go.
